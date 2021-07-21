@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Game</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #51c4d3;
+        }
+
+        .maincontainer {}
+
+        .title {
+            font-size: 70px;
+            font-family: 'Bebas Neue', cursive;
+            padding: 50px;
+            color: #132c33;
+        }
+
+        .dice {
+            display: inline-block;
+            padding: 30px;
+        }
+
+        .text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 35px;
+            color: #132c33;
+
+        }
+
+        .play {
+            background-color: #132c33;
+            color: #51c4d3;
+
+            padding: 10px 25px;
+            margin: 58px;
+            border: 1px solid black;
+            border-radius: 4px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 30px;
+
+        }
+
+        .play:hover {
+            background-color: #51c4d3;
+            color: #132c33;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="maincontainer">
+        <h1 class="title">Dice Game</h1>
+        <div class="dice">
+            <h4 class="text">Player 1</h4>
+            <img src="/images/dice6.png" alt="dice" class="dice1">
+        </div>
+        <div class="dice">
+            <h4 class="text">Player 2</h4>
+            <img src="/images/dice6.png" alt="dice" class="dice2">
+        </div>
+    </div>
+    <button class="play" onclick="random()">Play Now</button>
+
+    <script>
+        let random1;
+        let random2;
+        let img1;
+        let img2;
+        function random() {
+            random1 = Math.floor(Math.random() * 6)+1;
+            // console.log(random1);
+            random2 = Math.floor(Math.random() * 6)+1;
+            // console.log(random2);
+            if(random1==1){
+                document.getElementsByClassName('dice1')[0].src = "/images/dice1.png";
+            }else if(random1==2){
+                document.getElementsByClassName('dice1')[0].src = "/images/dice2.png";
+            }else if(random1==3){
+                document.getElementsByClassName('dice1')[0].src = "/images/dice3.png";
+            }else if(random1==4){
+                document.getElementsByClassName('dice1')[0].src = "/images/dice4.png";
+            }else if(random1==5){
+                document.getElementsByClassName('dice1')[0].src = "/images/dice5.png";
+            }else{
+                document.getElementsByClassName('dice1')[0].src = "/images/dice6.png";
+            }
+
+            if(random2==1){
+                document.getElementsByClassName('dice2')[0].src = "/images/dice1.png";
+            }else if(random2==2){
+                document.getElementsByClassName('dice2')[0].src = "/images/dice2.png";
+            }else if(random2==3){
+                document.getElementsByClassName('dice2')[0].src = "/images/dice3.png";
+            }else if(random2==4){
+                document.getElementsByClassName('dice2')[0].src = "/images/dice4.png";
+            }else if(random2==5){
+                document.getElementsByClassName('dice2')[0].src = "/images/dice5.png";
+            }else{
+                document.getElementsByClassName('dice2')[0].src = "/images/dice6.png";
+            }
+        
+            if(random1<random2){
+                document.getElementsByClassName("title")[0].innerText = "Player 2 Won"
+            }else if(random1>random2){
+                document.getElementsByClassName("title")[0].innerText = "Player 1 Won"
+            }else{
+                document.getElementsByClassName("title")[0].innerText = " Its Tie"
+            }
+        }
+        
+
+    </script>
+</body>
+
+</html>
